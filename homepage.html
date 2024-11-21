@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NeuroSign</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: black;
+            color: white;
+            font-family: 'Arial', sans-serif;
+            scroll-behavior: smooth; /* Enable smooth scrolling */
+        }
+
+        nav {
+            background-color: #333;
+            padding: 15px;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        nav ul p {
+            color: white;
+            font-weight: bold;
+            margin: 0;
+        }
+
+        nav ul li {
+            margin-left: 30px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: #00ccff;
+        }
+
+        .container {
+            text-align: left;
+            padding: 50px;
+            max-width: 800px;
+            margin: auto;
+            min-height: 100vh;
+        }
+
+        h1 {
+            font-size: 2.5em;
+            margin: 0;
+        }
+
+        .dynamic-description {
+            font-size: 1.2em;
+            margin-top: 20px; 
+        }
+
+        .chat-button {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #00ccff;
+            color: black;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+
+        .chat-button:hover {
+            background-color: #0099cc;
+        }
+
+        footer {
+            text-align: left;
+            padding: 20px;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+            background-color: #333;
+        }
+
+        .dropdown {
+            position: relative;
+            display: inline-block;
+            margin-top: 20px;
+        }
+
+        .dropbtn {
+            background-color: #007bff;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 7px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 160px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+        }
+
+        .dropdown-content a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #f1f1f1;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .dropdown:hover .dropbtn {
+            background-color: #0056b3;
+        }
+
+        .prediction {
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 20px;
+        }
+
+        form div {
+            margin-bottom: 15px;
+            width: 100%;
+            max-width: 300px;
+        }
+
+        form label {
+            margin-right: 10px;
+            font-weight: bold;
+        }
+
+        form input {
+            padding: 8px;
+            width: 100%;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            background-color: #333;
+            color: white;
+        }
+
+        .output-area {
+            margin-top: 20px;
+            margin-bottom: 20px;
+            padding: 20px;
+            background-color: #222;
+            border: 1px solid #444;
+            border-radius: 5px;
+            max-width: 400px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .notes-area {
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #222;
+            border: 1px solid #444;
+            border-radius: 5px;
+            max-width: 400px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><p>NeuroSign</p></li>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#prediction">Predictive Analysis</a></li> <!-- Updated link -->
+            <li><a href="chatgpt.html">Chat</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <div id="header-content">
+            <h1>NeuroSign</h1>
+            <h2 id="dynamic-header">Welcome to NeuroSign</h2>
+            <p class="dynamic-description">Discover the future of neural monitoring and analysis.</p>
+        </div>
+
+        <p>
+            Unlock the potential of your mind with the Neuro Sense Band. 
+            Our advanced EEG analysis provides real-time insights into your 
+            mental health and cognitive function. By leveraging AI to interpret your
+            brain activity, you can receive personalized feedback, manage stress, and enhance focus.
+            Monitor your sleep patterns and track your progress over time to foster 
+            a healthier, more balanced mind. Join us on a journey to better mental well-being
+            through the power of neuro-sensory analysis!
+        </p>
+        
+        <button class="chat-button" onclick="window.location.href='chatgpt.html'">Go to Chat</button>
+    </div>
+
+    <div class="container" id="prediction"> <!-- Added ID here -->
+        <h1>Predictive Analysis</h1>
+        <div class="pred dropdown">
+            <button class="dropbtn">Cognitive State</button>
+            <div class="dropdown-content">
+                <a href="#">Link 1</a>
+                <a href="#">Link 2</a>
+                <a href="#">Link 3</a>
+                <a href="#">Link 4</a>
+                <a href="#">Link 5</a>
+            </div>
+        </div>
+        <section class="prediction">
+            <form action="#">
+                <div>
+                    <label for="userid">USER ID:</label>
+                    <input type="number" id="userid" placeholder="Enter your User ID">
+                </div>
+                <div>
+                    <label for="username">USER NAME:</label>
+                    <input type="text" id="username" placeholder="Enter your User Name">
+                </div>  
+                <button class="chat-button" type="submit">Submit</button>
+            </form>
+    
+            <div class="output-area">
+                <h2>Output</h2>
+                <p id="output-text">Results will be displayed here.</p>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        &copy; 2024 Neuro Signal Sensing. All rights reserved.
+    </footer>
+
+    <script>
+        const headers = [
+            {
+                title: "About Neuro Signs",
+                description: "Explore how each of the five senses—sight, sound, touch, taste, and smell—affects perception and decision-making."
+            },
+            {
+                title: "Future of Mental Health",
+                description: "Use real-time feedback to adjust sensory environments, optimizing experiences based on user responses."
+            },
+            {
+                title: "Unlock Your Mind",
+                description: "Unlock the potential of your mind with the Neuro Sense Band. Our advanced EEG analysis provides real-time insights."
+            }
+        ];
+
+        let currentIndex = 0;
+
+        function changeHeader() {
+            const currentHeader = headers[currentIndex];
+            document.getElementById("dynamic-header").innerText = currentHeader.title;
+            document.querySelector(".dynamic-description").innerText = currentHeader.description;
+            currentIndex = (currentIndex + 1) % headers.length;
+        }
+
+        setInterval(changeHeader, 2000); // Change header and content every 2 seconds
+    </script>
+</body>
+</html>
